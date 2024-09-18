@@ -16,7 +16,7 @@ SOURCES = testshapelist.cpp \
           $(SHAPES_DIR)/circle.cpp \
           $(SHAPES_DIR)/triangle.cpp \
           $(SHAPES_DIR)/rectangle.cpp
-
+echo SOURCES
 # Object files
 OBJS = $(SOURCES:.cpp=.o)
 
