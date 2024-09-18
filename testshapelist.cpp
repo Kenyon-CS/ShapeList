@@ -10,7 +10,7 @@ int main() {
     // Create various shapes
     Circle* c1 = new Circle(5.0);         // Circle with radius 5.0
     Rectangle* r1 = new Rectangle(4.0, 6.0);  // Rectangle with width 4.0 and height 6.0
-    Triangle* t1 = new Triangle(3.0, 4.0, 5.0); // Triangle with sides 3.0, 4.0, 5.0
+    Triangle* t1 = new Triangle(3.0, 4.0); // Triangle with sides 3.0, 4.0
 
     // Add shapes to the arrayListType
     shapeList.insert(c1);
