@@ -6,3 +6,7 @@ This code inclues two submodules (GitHub repositories. They were created by the 
 git submodule add https://github.com/Kenyon-CS/shapes shapes
 git submodule add https://github.com/Kenyon-CS/arrayListType arrayListType
 ```
+To update to latest submodual versions:
+```
+git submodule update --remote --recursive
+```
