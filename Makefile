@@ -10,7 +10,7 @@ $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
 ShapeList.o: testshapelist.cpp shapes/shape.h shapes/circle.h shapes/triangle.h shapes/rectangle.h
-	$(CXX) $(CXXFLAGS) -c ShapeList.cpp
+	$(CXX) $(CXXFLAGS) -c testshapelist.cpp
 
 shape.o: shapes/shape.cpp shapes/shape.h
 	$(CXX) $(CXXFLAGS) -c shapes/shape.cpp
