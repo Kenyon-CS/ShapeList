@@ -9,7 +9,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-ShapeList.o: shapes/ShapeList.cpp shapes/shape.h shapes/circle.h shapes/triangle.h shapes/rectangle.h
+ShapeList.o: ShapeList.cpp shapes/shape.h shapes/circle.h shapes/triangle.h shapes/rectangle.h
 	$(CXX) $(CXXFLAGS) -c ShapeList.cpp
 
 shape.o: shapes/shape.cpp shapes/shape.h
