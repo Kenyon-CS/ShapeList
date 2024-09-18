@@ -7,10 +7,10 @@ SHAPES_DIR = ./shapes
 ARRAYLIST_DIR = ./arrayListType
 
 # Output target
-TARGET = main
+TARGET = testshapelist
 
 # Source files
-SOURCES = main.cpp \
+SOURCES = testshapelist.cpp \
           $(ARRAYLIST_DIR)/arrayListType.cpp \
           $(SHAPES_DIR)/shape.cpp \
           $(SHAPES_DIR)/circle.cpp \
