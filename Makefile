@@ -19,7 +19,7 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 # Rules to compile individual object files
-obj/Circle.o: $(SHAPE_DIR)/circle.cpp
+obj/circle.o: $(SHAPE_DIR)/circle.cpp
 	$(CXX) $(CXXFLAGS) -c $(SHAPE_DIR)/circle.cpp -o obj/circle.o
 
 obj/rectangle.o: $(SHAPE_DIR)/rectangle.cpp
