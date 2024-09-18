@@ -1,0 +1,6 @@
+[submodule "shapes"]
+	path = shapes
+	url = https://github.com/Kenyon-CS/shapes
+[submodule "arrayListType"]
+	path = arrayListType
+	url = https://github.com/Kenyon-CS/arrayListType
