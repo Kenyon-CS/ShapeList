@@ -26,13 +26,14 @@ INCLUDES = -I$(ARRAYLIST_DIR) -I$(SHAPES_DIR)
 # Default rule
 all: $(TARGET)
 
+print-%  : ; @echo $* = $($*)
+
 # Linking
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
 
 # Compilation rules for each source file
 %.o: %.cpp
-	echo $(SOURCES)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 # Clean up object files and the binary
