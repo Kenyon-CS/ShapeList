@@ -23,7 +23,13 @@ int main() {
     }
 
     // Test other operations: remove a shape, search for a shape, etc.
-    shapeList.remove(1);  // Remove the second shape (r1)
+    shapeList.remove(c1);  // Remove the second shape (r1)
+
+    // Display the shapes in the list
+    cout << "After removing circle\n";
+    for (int i = 0; i < shapeList.listSize(); i++) {
+        shapeList[i]->describe();  // Assuming print is a method for Shape objects
+    }
 
     // Clean up memory
     delete c1;
