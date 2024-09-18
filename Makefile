@@ -28,11 +28,11 @@ all: $(TARGET)
 
 # Linking
 $(TARGET): $(OBJS)
-	echo $(SOURCES)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
 
 # Compilation rules for each source file
 %.o: %.cpp
+	echo $(SOURCES)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 # Clean up object files and the binary
