@@ -1,41 +1,35 @@
-# Compiler
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -I./shapes -I./arrayListType
 
 # Directories
-SHAPES_DIR = ./shapes
-ARRAYLIST_DIR = ./arrayListType
+SHAPE_DIR = shapes
+ARRAYLIST_DIR = arrayListType
+OBJ_DIR = obj
 
-# Output target
-TARGET = testshapelist
+# Files
+SHAPE_FILES = $(SHAPE_DIR)/Circle.cpp $(SHAPE_DIR)/Triangle.cpp $(SHAPE_DIR)/Rectangle.cpp
+TEST_FILES = testshapelist.cpp
 
-# Source files
-SOURCES = testshapelist.cpp \
-          $(SHAPES_DIR)/shape.cpp \
-          $(SHAPES_DIR)/circle.cpp \
-          $(SHAPES_DIR)/triangle.cpp \
-          $(SHAPES_DIR)/rectangle.cpp
+OBJECTS = $(OBJ_DIR)/Circle.o $(OBJ_DIR)/Triangle.o $(OBJ_DIR)/Rectangle.o $(OBJ_DIR)/arrayListType.o $(OBJ_DIR)/testshapelist.o
 
-# Object files
-OBJS = $(SOURCES:.cpp=.o)
+# Create object directory if it doesn't exist
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-# Header file directories
-INCLUDES = -I$(ARRAYLIST_DIR) -I$(SHAPES_DIR)
+# Rules to compile individual object files
+$(OBJ_DIR)/%.o: $(SHAPE_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Default rule
-all: $(TARGET)
+$(OBJ_DIR)/%.o: $(ARRAYLIST_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-print-%  : ; @echo $* = $($*)
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Linking
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
+# Linking all objects to create the executable
+testshapelist: $(OBJECTS)
+	$(CXX) $(OBJECTS) -o testshapelist
 
-# Compilation rules for each source file
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
-
-# Clean up object files and the binary
+# Clean command
 clean:
-	rm -f $(OBJS) $(TARGET)
-
+	rm -rf $(OBJ_DIR) testshapelist
