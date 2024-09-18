@@ -1,28 +1,40 @@
-CXX = clang++
+# Compiler
+CXX = g++
 CXXFLAGS = -std=c++11 -Wall
-TARGET = testshapelist
 
-OBJS = ShapeList.o shape.o circle.o triangle.o rectangle.o
+# Directories
+SHAPES_DIR = ./shapes
+ARRAYLIST_DIR = ./arrayListType
 
+# Output target
+TARGET = main
+
+# Source files
+SOURCES = main.cpp \
+          $(ARRAYLIST_DIR)/arrayListType.cpp \
+          $(SHAPES_DIR)/shape.cpp \
+          $(SHAPES_DIR)/circle.cpp \
+          $(SHAPES_DIR)/triangle.cpp \
+          $(SHAPES_DIR)/rectangle.cpp
+
+# Object files
+OBJS = $(SOURCES:.cpp=.o)
+
+# Header file directories
+INCLUDES = -I$(ARRAYLIST_DIR) -I$(SHAPES_DIR)
+
+# Default rule
 all: $(TARGET)
 
+# Linking
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
 
-ShapeList.o: testshapelist.cpp shapes/shape.h shapes/circle.h shapes/triangle.h shapes/rectangle.h
-	$(CXX) $(CXXFLAGS) -c testshapelist.cpp
+# Compilation rules for each source file
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
-shape.o: shapes/shape.cpp shapes/shape.h
-	$(CXX) $(CXXFLAGS) -c shapes/shape.cpp
-
-circle.o: shapes/circle.cpp shapes/circle.h shapes/shape.h
-	$(CXX) $(CXXFLAGS) -c shapes/circle.cpp
-
-triangle.o: shapes/triangle.cpp shapes/triangle.h shapes/shape.h
-	$(CXX) $(CXXFLAGS) -c shapes/triangle.cpp
-
-rectangle.o: shapes/rectangle.cpp shapes/rectangle.h shapes/shape.h
-	$(CXX) $(CXXFLAGS) -c shapes/rectangle.cpp
-
+# Clean up object files and the binary
 clean:
 	rm -f $(OBJS) $(TARGET)
+
