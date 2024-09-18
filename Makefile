@@ -1,6 +1,6 @@
 CXX = clang++
 CXXFLAGS = -std=c++11 -Wall
-TARGET = ShapeList
+TARGET = testshapelist
 
 OBJS = ShapeList.o shape.o circle.o triangle.o rectangle.o
 
@@ -9,7 +9,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-ShapeList.o: ShapeList.cpp shapes/shape.h shapes/circle.h shapes/triangle.h shapes/rectangle.h
+ShapeList.o: testshapelist.cpp shapes/shape.h shapes/circle.h shapes/triangle.h shapes/rectangle.h
 	$(CXX) $(CXXFLAGS) -c ShapeList.cpp
 
 shape.o: shapes/shape.cpp shapes/shape.h
