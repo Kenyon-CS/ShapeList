@@ -12,7 +12,7 @@ TEST_FILES = testshapelist.cpp
 
 OBJECTS = $(OBJ_DIR)/circle.o $(OBJ_DIR)/triangle.o $(OBJ_DIR)/rectangle.o $(OBJ_DIR)/testshapelist.o
 
-all: testshapelist
+all: $(OBJ_DIR) testshapelist
 
 # Create object directory if it doesn't exist
 $(OBJ_DIR):
