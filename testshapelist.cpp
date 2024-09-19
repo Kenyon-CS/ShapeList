@@ -19,7 +19,7 @@ int main() {
 
     // Display the shapes in the list
     for (int i = 0; i < shapeList.listSize(); i++) {
-        shapeList[i]->describe();  // Assuming print is a method for Shape objects
+        cout << shapeList[i]->describe() << endl;  // Assuming print is a method for Shape objects
     }
 
     // Test other operations: remove a shape, search for a shape, etc.
@@ -28,7 +28,7 @@ int main() {
     // Display the shapes in the list
     cout << "After removing circle\n";
     for (int i = 0; i < shapeList.listSize(); i++) {
-        shapeList[i]->describe();  // Assuming print is a method for Shape objects
+        cout << shapeList[i]->describe() << endl;  // Assuming print is a method for Shape objects
     }
 
     // Clean up memory
