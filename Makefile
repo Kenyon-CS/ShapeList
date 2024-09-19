@@ -7,10 +7,10 @@ ARRAYLIST_DIR = arrayListType
 OBJ_DIR = obj
 
 # Files
-SHAPE_FILES = $(SHAPE_DIR)/Circle.cpp $(SHAPE_DIR)/Triangle.cpp $(SHAPE_DIR)/Rectangle.cpp
+SHAPE_FILES = $(SHAPE_DIR)/circle.cpp $(SHAPE_DIR)/triangle.cpp $(SHAPE_DIR)/rectangle.cpp
 TEST_FILES = testshapelist.cpp
 
-OBJECTS = $(OBJ_DIR)/Circle.o $(OBJ_DIR)/Triangle.o $(OBJ_DIR)/Rectangle.o $(OBJ_DIR)/testshapelist.o
+OBJECTS = $(OBJ_DIR)/circle.o $(OBJ_DIR)/triangle.o $(OBJ_DIR)/rectangle.o $(OBJ_DIR)/testshapelist.o
 
 all: testshapelist
 
